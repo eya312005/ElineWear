@@ -1,0 +1,151 @@
+.product-detail {
+  display: flex;
+  gap: 48px;
+  padding: 48px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: Lato, sans-serif;
+}
+
+.product-detail-image {
+  flex: 1;
+}
+.product-detail-image img {
+  width: 100%;
+  height: 480px;
+  object-fit: contain; 
+  background-color: #f5efe6; 
+  border-radius: 12px;
+}
+
+.product-detail-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-detail-info h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.product-detail-price {
+  font-size: 20px;
+  color: #8a7d6d;
+  margin-bottom: 20px;
+}
+
+.product-detail-description {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.product-detail-sizes {
+  font-size: 14px;
+  color: #8a7d6d;
+  margin-bottom: 32px;
+}
+
+.product-detail-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.btn-cart {
+  font-family: Lato, sans-serif;
+  font-size: 15px;
+  background-color: #8a7d6d;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-cart:hover {
+  background-color: #6f6455;
+}
+
+.btn-icon {
+  border: none;
+  background: #f5efe6;
+  color: #8a7d6d;
+  font-size: 22px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-icon:hover {
+  transform: scale(1.1);
+}
+
+.btn-favorite.active {
+  color: #e0555f;
+}
+
+.product-detail .size-picker {
+  margin-bottom: 24px;
+}
+
+.product-detail .size-picker-label {
+  font-size: 14px;
+  color: #8a7d6d;
+  margin-bottom: 10px;
+}
+
+.product-detail .size-options {
+  display: flex;
+  gap: 10px;
+}
+
+.product-detail .size-option {
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #d8cfc2;
+  background: #fff;
+  color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.product-detail .size-option:hover {
+  border-color: #8a7d6d;
+}
+
+.product-detail .size-option.active {
+  background-color: #8a7d6d;
+  border-color: #8a7d6d;
+  color: #fff;
+}
+
+.product-detail .size-error {
+  font-size: 13px;
+  color: #b04a4a;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .product-detail {
+    flex-direction: column;
+    padding: 32px 20px;
+    gap: 24px;
+  }
+
+  .product-detail-image img {
+    height: 320px;
+  }
+}

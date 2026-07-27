@@ -1,0 +1,22 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #FFFDD0;
+  --color-accent:#694A38;
+  --color-text:#694A38;
+}
+
+h1,h2,h3 {
+  font-family:Cormorant,serif;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+body{
+  font-family: Lato, sans-serif;
+}
+html, body {
+  overflow-x: hidden;
+}
