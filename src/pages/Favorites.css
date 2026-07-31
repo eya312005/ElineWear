@@ -9,12 +9,6 @@
   margin-top: 16px;
 }
 
-.favorites-page .favorites-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-  margin-top: 24px;
-}
 
 .favorites-page .product-card {
   position: relative;
@@ -36,17 +30,26 @@
   color: inherit;
 }
 
+.favorites-page .favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 260px);
+  justify-content: flex-start;
+  gap: 32px;
+  margin-top: 24px;
+}
+
 .favorites-page .image-wrapper {
   width: 100%;
   height: 220px;
   overflow: hidden;
   border-radius: 8px;
   margin-bottom: 16px;
+  background-color: #f5efe6;
 }
 
 .favorites-page .image-wrapper img {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover;
   display: block;
 }
