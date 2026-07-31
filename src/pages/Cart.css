@@ -9,13 +9,20 @@
   margin-top: 16px;
 }
 
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-.cart-page .product-card {
-  padding: 20px;
-  border-radius: 12px;
-  background-color: #fff;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.product-card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.btn-ajouter-panier {
+  margin-top: auto;
 }
 
 .cart-page .product-card:hover {
@@ -30,7 +37,7 @@
 
 .cart-page .cart-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 260px);
+  grid-template-columns: repeat(4,1fr);
   justify-content: flex-start;
   gap: 32px;
   margin-top: 24px;

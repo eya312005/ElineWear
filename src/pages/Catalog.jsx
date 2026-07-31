@@ -9,7 +9,6 @@ import { useToast } from '../context/ToastContext.jsx'
 function Catalog() {
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('Tout')
-  const [showFilters, setShowFilters] = useState(false)
   const { showToast } = useToast()
   const [selectedSizes, setSelectedSizes] = useState({})
   const { addToCart } = useCart()
@@ -52,26 +51,20 @@ function Catalog() {
           placeholder="Rechercher un produit..."
           value={search}
           onChange={(e) => setSearch(e.target.value)} />
-
-        <button className="filter-toggle" onClick={() => setShowFilters(!showFilters)}>
-          Filtres {showFilters ? '▲' : '▼'}
-        </button>
       </div>
 
       <div className="catalog-body">
-        {showFilters && (
-          <aside className="filter-panel">
-            <h3>Catégories</h3>
-            {categories.map(cat => (
-              <button
-                key={cat}
-                className={cat === category ? 'active' : ''}
-                onClick={() => setCategory(cat)}>
-                {cat}
-              </button>
-            ))}
-          </aside>
-        )}
+        <aside className="filter-panel">
+          <h3>Catégories</h3>
+          {categories.map(cat => (
+            <button
+              key={cat}
+              className={cat === category ? 'active' : ''}
+              onClick={() => setCategory(cat)}>
+              {cat}
+            </button>
+          ))}
+        </aside>
 
         <div className="catalog-grid">
           {filteredProducts.map(product => (

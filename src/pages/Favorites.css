@@ -32,7 +32,7 @@
 
 .favorites-page .favorites-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 260px);
+  grid-template-columns: repeat(4, 1fr);
   justify-content: flex-start;
   gap: 32px;
   margin-top: 24px;

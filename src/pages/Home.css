@@ -61,14 +61,19 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 32px;
+  align-items: stretch; /* toutes les cartes ont la même hauteur */
 }
 
+/* --- CARTE PRODUIT : boutons alignés --- */
 .home .product-card {
   border-radius: 20px;
   background-color: #fff;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .home .product-card:hover {
@@ -130,6 +135,7 @@
   align-items: center;
   text-align: center;
   gap: 8px;
+  flex: 1; /* prend tout l'espace disponible dans la carte */
 }
 
 .home .card-title-link {
@@ -165,7 +171,7 @@
 
 .home .btn-add-cart {
   width: 100%;
-  margin-top: 8px;
+  margin-top: auto; /* toujours poussé en bas */
   font-family: Lato, sans-serif;
   font-size: 14px;
   background-color: #8a7d6d;

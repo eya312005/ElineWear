@@ -49,6 +49,7 @@
   align-items: flex-start;
 }
 
+/* --- FILTRE TOUJOURS VISIBLE (sticky) --- */
 .catalog-page .filter-panel {
   width: 200px;
   flex-shrink: 0;
@@ -59,6 +60,11 @@
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 100px; /* ajuste selon la hauteur réelle de ta navbar */
+  align-self: flex-start;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
 }
 
 .catalog-page .filter-panel h3 {
@@ -93,16 +99,21 @@
 .catalog-page .catalog-grid {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
+  align-items: stretch; /* toutes les cartes ont la même hauteur */
 }
 
+/* --- CARTE PRODUIT : boutons alignés --- */
 .catalog-page .product-card {
   border-radius: 20px;
   background-color: #fff;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .catalog-page .product-card:hover {
@@ -164,6 +175,7 @@
   align-items: center;
   text-align: center;
   gap: 8px;
+  flex: 1; /* prend tout l'espace disponible dans la carte */
 }
 
 .catalog-page .card-title-link {
@@ -199,7 +211,7 @@
 
 .catalog-page .btn-add-cart {
   width: 100%;
-  margin-top: 8px;
+  margin-top: auto; /* toujours poussé en bas, peu importe le contenu au-dessus */
   font-family: Lato, sans-serif;
   font-size: 14px;
   background-color: #8a7d6d;
@@ -235,5 +247,7 @@
 
   .catalog-page .filter-panel {
     width: 100%;
+    position: static; /* le sticky n'a pas de sens en colonne mobile */
+    max-height: none;
   }
 }
