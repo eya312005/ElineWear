@@ -4,11 +4,13 @@ import products from '../data/products.js'
 import { useState } from 'react'
 import { useCart } from '../context/CartContext.jsx'
 import { useFavorites } from '../context/FavoritesContext.jsx'
+import { useToast } from '../context/ToastContext.jsx'
 
 function Catalog() {
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('Tout')
   const [showFilters, setShowFilters] = useState(false)
+  const { showToast } = useToast()
   const [selectedSizes, setSelectedSizes] = useState({})
   const { addToCart } = useCart()
   const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites()
@@ -24,8 +26,10 @@ function Catalog() {
     e.preventDefault()
     if (isFavorite(product.id)) {
       removeFromFavorites(product.id)
+      showToast(`${product.name} retiré des favoris`)
     } else {
       addToFavorites(product)
+      showToast(`${product.name} ajouté aux favoris`)
     }
   }
 
@@ -34,6 +38,7 @@ function Catalog() {
     e.preventDefault()
     const size = product.sizes ? (selectedSizes[product.id] || product.sizes[0]) : null
     addToCart(product, size)
+    showToast(`${product.name} ajouté au panier`)
   }
 
   return (

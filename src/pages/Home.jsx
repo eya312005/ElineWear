@@ -4,11 +4,13 @@ import products from '../data/products.js'
 import { useState } from 'react'
 import { useCart } from '../context/CartContext.jsx'
 import { useFavorites } from '../context/FavoritesContext.jsx'
+import { useToast } from '../context/ToastContext.jsx'
 
 function Home() {
   const featuredProducts = products.slice(10, 17)
   const { addToCart } = useCart()
   const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites()
+  const { showToast } = useToast()
   const [selectedSizes, setSelectedSizes] = useState({})
 
   function toggleFavorite(e, product) {
@@ -16,8 +18,10 @@ function Home() {
     e.preventDefault()
     if (isFavorite(product.id)) {
       removeFromFavorites(product.id)
+      showToast('Produit retiré des favoris')
     } else {
       addToFavorites(product)
+      showToast('Produit ajouté aux favoris')
     }
   }
 
@@ -26,7 +30,8 @@ function Home() {
     e.preventDefault()
     const size = product.sizes ? (selectedSizes[product.id] || product.sizes[0]) : null
     addToCart(product, size)
-  }
+    showToast(`${product.name} ajouté au panier`)
+}
 
   return (
     <div className="home">

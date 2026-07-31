@@ -15,30 +15,33 @@ import './App.css'
 import {CartProvider} from './context/CartContext.jsx'
 import {FavoritesProvider} from './context/FavoritesContext.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
+import { ToastProvider } from './context/ToastContext.jsx'
 
 function App() {
   return (
-    <FavoritesProvider>
-      <CartProvider>
-        <BrowserRouter>
-         <ScrollToTop />
-          <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/catalogue" element={<Catalog />} />
-              <Route path="/product/:id" element={<ProductDetail />} />
-              <Route path="/panier" element={<Cart />} />
-              <Route path="/favoris" element={<Favorites />} />
-              <Route path="/paiement" element={<Payment />} />
-              <Route path="/connexion" element={<Login />} />
-              <Route path="/inscription" element={<Register />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/a-propos" element={<About />} />
-            </Routes>
-          <Footer/>
-        </BrowserRouter>
-      </CartProvider>
-    </FavoritesProvider>
+    <ToastProvider>
+      <FavoritesProvider>
+        <CartProvider>
+          <BrowserRouter>
+          <ScrollToTop />
+            <Navbar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/catalogue" element={<Catalog />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/panier" element={<Cart />} />
+                <Route path="/favoris" element={<Favorites />} />
+                <Route path="/paiement" element={<Payment />} />
+                <Route path="/connexion" element={<Login />} />
+                <Route path="/inscription" element={<Register />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/a-propos" element={<About />} />
+              </Routes>
+            <Footer/>
+          </BrowserRouter>
+        </CartProvider>
+      </FavoritesProvider>
+    </ToastProvider>
   )
 }
 

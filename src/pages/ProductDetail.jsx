@@ -3,12 +3,14 @@ import { useState } from 'react'
 import products from '../data/products.js'
 import { useCart } from '../context/CartContext.jsx'
 import { useFavorites } from '../context/FavoritesContext.jsx'
+import { useToast } from '../context/ToastContext.jsx'
 import './ProductDetail.css'
 
 function ProductDetail() {
   const { id } = useParams()
   const product = products.find(p => p.id === Number(id))
   const { addToCart } = useCart()
+  const { showToast } = useToast()
   const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites()
   const [selectedSize, setSelectedSize] = useState(null)
   const [sizeError, setSizeError] = useState(false)
@@ -20,8 +22,10 @@ function ProductDetail() {
   function toggleFavorite() {
     if (isFavorite(product.id)) {
       removeFromFavorites(product.id)
+      showToast(`${product.name} retiré des favoris`)
     } else {
       addToFavorites(product)
+      showToast(`${product.name} ajouté aux favoris`)
     }
   }
 
@@ -32,6 +36,7 @@ function ProductDetail() {
     }
     setSizeError(false)
     addToCart(product, selectedSize)
+    showToast(`${product.name} ajouté au panier`)
   }
 
   return (
