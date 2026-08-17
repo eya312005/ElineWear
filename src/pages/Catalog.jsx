@@ -40,6 +40,11 @@ function Catalog() {
     showToast(`${product.name} ajouté au panier`)
   }
 
+  function handleCategoryClick(cat) {
+    setCategory(cat)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <div className="catalog-page">
       <h1>Catalogue</h1>
@@ -60,7 +65,7 @@ function Catalog() {
             <button
               key={cat}
               className={cat === category ? 'active' : ''}
-              onClick={() => setCategory(cat)}>
+              onClick={() => handleCategoryClick(cat)}>
               {cat}
             </button>
           ))}
